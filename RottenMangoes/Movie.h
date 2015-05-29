@@ -15,6 +15,7 @@
 @property (nonatomic) NSString *movieID;
 @property (nonatomic) NSString *movieYear;
 @property (nonatomic) UIImage *movieThumbnail;
+@property (nonatomic) NSString *imageURLString;
 
 -(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear andMovieThumbnail:(UIImage*)movieThumnail;
 

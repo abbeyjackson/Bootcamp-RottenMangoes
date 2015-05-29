@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cu6-bR-392">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -12,20 +12,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="S4K-pi-upm">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JbV-u8-YEs">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MovieCell" id="JbV-u8-YEs" customClass="MovieCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-1u-KfP">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="ifS-1u-KfP" firstAttribute="top" secondItem="JbV-u8-YEs" secondAttribute="top" id="Iin-S7-Baz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ifS-1u-KfP" secondAttribute="trailing" id="L9f-jg-IJT"/>
+                                    <constraint firstItem="ifS-1u-KfP" firstAttribute="leading" secondItem="JbV-u8-YEs" secondAttribute="leading" id="YCP-1a-RUE"/>
+                                    <constraint firstAttribute="bottom" secondItem="ifS-1u-KfP" secondAttribute="bottom" id="kkd-QA-5b4"/>
+                                </constraints>
+                                <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <outlet property="movieThumbnailView" destination="ifS-1u-KfP" id="zvx-Rf-dcy"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -33,8 +49,27 @@
                             <outlet property="delegate" destination="h0s-9B-Mhs" id="6Rb-FN-c2U"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="XcH-Gh-faj"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dn0-1u-h5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="26"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bsF-QJ-DbH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cu6-bR-392" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XRG-29-ofz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h0s-9B-Mhs" kind="relationship" relationship="rootViewController" id="5rI-KQ-9f4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tq5-01-uCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="26"/>
         </scene>
