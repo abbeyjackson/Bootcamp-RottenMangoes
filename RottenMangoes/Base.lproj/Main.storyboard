@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cu6-bR-392">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Movies Collection View Controller-->
@@ -65,8 +66,71 @@
                     <view key="view" contentMode="scaleToFill" id="LAq-bN-HYe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJm-rD-O7N" userLabel="DetailMovieThumbnail">
+                                <rect key="frame" x="31" y="120" width="66" height="110"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2G-1w-sI4">
+                                        <rect key="frame" x="6" y="6" width="54" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="a7t-PC-sUq"/>
+                                            <constraint firstAttribute="width" constant="54" id="yQL-5e-bxZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVO-4O-imt">
+                                        <rect key="frame" x="12" y="87" width="42" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="E2G-1w-sI4" firstAttribute="top" secondItem="kJm-rD-O7N" secondAttribute="top" constant="6" id="2Bt-cE-SER"/>
+                                    <constraint firstAttribute="height" constant="110" id="40b-N9-XQK"/>
+                                    <constraint firstItem="XVO-4O-imt" firstAttribute="top" secondItem="E2G-1w-sI4" secondAttribute="bottom" constant="1" id="Cp2-bv-vES"/>
+                                    <constraint firstItem="E2G-1w-sI4" firstAttribute="leading" secondItem="kJm-rD-O7N" secondAttribute="leading" constant="6" id="IAk-IP-Liv"/>
+                                    <constraint firstAttribute="width" constant="66" id="KzC-fr-VVX"/>
+                                    <constraint firstAttribute="trailing" secondItem="E2G-1w-sI4" secondAttribute="trailing" constant="6" id="Pqd-JZ-tCt"/>
+                                    <constraint firstAttribute="centerX" secondItem="XVO-4O-imt" secondAttribute="centerX" id="Pu0-pg-Si2"/>
+                                    <constraint firstAttribute="bottom" secondItem="XVO-4O-imt" secondAttribute="bottom" id="bPC-Ut-5XO"/>
+                                    <constraint firstItem="XVO-4O-imt" firstAttribute="leading" secondItem="kJm-rD-O7N" secondAttribute="leading" constant="12" id="bUg-gp-YIK"/>
+                                    <constraint firstAttribute="bottom" secondItem="E2G-1w-sI4" secondAttribute="bottom" constant="24" id="yEh-Tm-xAg"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-dO-bC0">
+                                <rect key="frame" x="127" y="120" width="427" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Synopsis" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a80-zj-YMW">
+                                <rect key="frame" x="127" y="175" width="397" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kJm-rD-O7N" firstAttribute="leading" secondItem="LAq-bN-HYe" secondAttribute="leadingMargin" constant="15" id="2a3-Ei-2MM"/>
+                            <constraint firstItem="a80-zj-YMW" firstAttribute="top" secondItem="fR2-dO-bC0" secondAttribute="bottom" constant="28.5" id="91G-pd-CMH"/>
+                            <constraint firstItem="kJm-rD-O7N" firstAttribute="top" secondItem="fR2-dO-bC0" secondAttribute="top" id="F2f-f6-kkP"/>
+                            <constraint firstItem="a80-zj-YMW" firstAttribute="leading" secondItem="fR2-dO-bC0" secondAttribute="leading" id="FV2-fH-XHx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a80-zj-YMW" secondAttribute="trailing" constant="60" id="hFI-LO-4hb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fR2-dO-bC0" secondAttribute="trailing" constant="30" id="kDE-Vg-6tf"/>
+                            <constraint firstItem="kJm-rD-O7N" firstAttribute="top" secondItem="LAq-bN-HYe" secondAttribute="topMargin" constant="120" id="o9x-IQ-tyB"/>
+                            <constraint firstItem="fR2-dO-bC0" firstAttribute="leading" secondItem="kJm-rD-O7N" secondAttribute="trailing" constant="30" id="oAw-x3-chH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="MovieDetailYearLabel" destination="XVO-4O-imt" id="0hY-j8-A6Z"/>
+                        <outlet property="movieDetailSynopsisLabel" destination="a80-zj-YMW" id="EVU-0y-BtH"/>
+                        <outlet property="movieDetailThumbnailView" destination="E2G-1w-sI4" id="sIf-GG-wzK"/>
+                        <outlet property="movieDetailTitleLabel" destination="fR2-dO-bC0" id="fLY-oy-giF"/>
+                        <outlet property="movieDetailYearLabel" destination="XVO-4O-imt" id="yMd-yh-C4E"/>
+                        <outlet property="movieThumbnailDetailBackground" destination="kJm-rD-O7N" id="hWG-kG-2kg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHx-33-qPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

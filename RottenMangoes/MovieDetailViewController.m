@@ -7,6 +7,7 @@
 //
 
 #import "MovieDetailViewController.h"
+#import "Movie.h"
 
 @interface MovieDetailViewController ()
 
@@ -14,9 +15,32 @@
 
 @implementation MovieDetailViewController
 
+#pragma mark - Managing the detail item
+
+- (void)setMovieDetail:(id)newMovieDetail{
+    if (_movieDetail != newMovieDetail) {
+        _movieDetail = newMovieDetail;
+        
+        // Update the view.
+        [self configureView];
+    }
+}
+
+-(void)configureView{
+    // Update the user interface for the detail item
+    
+    if (self.movieDetail) {
+        self.movieDetailThumbnailView.image = self.movieDetail.movieThumbnail;
+        self.movieDetailYearLabel.text = [NSString stringWithFormat:@"%d", self.movieDetail.movieYear];
+        self.movieDetailTitleLabel.text = self.movieDetail.movieTitle;
+        self.movieDetailSynopsisLabel.text = self.movieDetail.movieSynopsis;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {

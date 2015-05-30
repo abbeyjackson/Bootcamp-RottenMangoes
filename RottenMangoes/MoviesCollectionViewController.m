@@ -9,6 +9,7 @@
 #import "MoviesCollectionViewController.h"
 #import "Movie.h"
 #import "MovieCollectionViewCell.h"
+#import "MovieDetailViewController.h"
 
 @interface MoviesCollectionViewController ()
 
@@ -35,6 +36,15 @@ static NSString * const reuseIdentifier = @"MovieCell";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"movieDetailView"]) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        
+        Movie *movie = self.moviesArray[indexPath.row];
+        [[segue destinationViewController] setMovieDetail:movie];
+    }
+}
+
 
 -(void)fetchInTheatreMovies{
     
@@ -56,7 +66,16 @@ static NSString * const reuseIdentifier = @"MovieCell";
         for (NSDictionary *singleMovieDictionary in parsedMoviesArray) {
             
             NSString *movieThumbnailURL = [[singleMovieDictionary objectForKey:@"posters"] objectForKey:@"thumbnail"];
-            Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"] movieID:[singleMovieDictionary objectForKey:@"id"] movieYear:[singleMovieDictionary objectForKey:@"year"] movieSynopsis:[singleMovieDictionary objectForKey:@"synopsis"] andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
+            
+            NSNumber* movieYear = [singleMovieDictionary objectForKey:@"year"];
+            NSString* synopsis = [singleMovieDictionary objectForKey:@"synopsis"];
+            
+            
+            Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"]
+                                                    movieID:[singleMovieDictionary objectForKey:@"id"]
+                                                  movieYear:[movieYear intValue]
+                                              movieSynopsis:synopsis
+                                     andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
             
             [weakSelf.moviesArray addObject:movie];
             
@@ -75,8 +94,7 @@ static NSString * const reuseIdentifier = @"MovieCell";
     
 }
 
-- (UIImage*)fetchImagesForMovies:(NSIndexPath *)indexPath
-{
+- (UIImage*)fetchImagesForMovies:(NSIndexPath *)indexPath{
     
     Movie *movie = self.moviesArray[indexPath.item];
     NSData *movieThumbnailData = [NSData dataWithContentsOfURL:movie.movieThumbnailNSURL];
