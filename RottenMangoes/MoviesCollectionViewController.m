@@ -58,7 +58,6 @@ static NSString * const reuseIdentifier = @"MovieCell";
             NSString *movieThumbnailURL = [[singleMovieDictionary objectForKey:@"posters"] objectForKey:@"thumbnail"];
             Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"] movieID:[singleMovieDictionary objectForKey:@"id"] movieYear:[singleMovieDictionary objectForKey:@"year"] movieSynopsis:[singleMovieDictionary objectForKey:@"synopsis"] andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
             
-            
             [weakSelf.moviesArray addObject:movie];
             
         }

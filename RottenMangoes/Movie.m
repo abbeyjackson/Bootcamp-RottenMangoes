@@ -10,7 +10,7 @@
 
 @implementation Movie
 
--(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL{
+-(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear movieSynopsis:(NSString*)movieSynopsis andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL{
     self = [super init];
     if (self){
         _movieTitle = movieTitle;

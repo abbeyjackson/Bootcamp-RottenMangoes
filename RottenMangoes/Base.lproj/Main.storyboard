@@ -39,7 +39,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="movieThumbnailView" destination="SRB-t7-leI" id="B1K-my-icZ"/>
-                                    <segue destination="fDi-9e-smx" kind="presentation" identifier="movieDetailView" id="AIY-f6-rEA"/>
+                                    <segue destination="fDi-9e-smx" kind="show" identifier="movieDetailView" id="AIY-f6-rEA"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
