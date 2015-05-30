@@ -10,13 +10,13 @@
 
 @implementation Movie
 
--(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear andMovieThumbnail:(UIImage*)movieThumbnail{
+-(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL{
     self = [super init];
     if (self){
         _movieTitle = movieTitle;
         _movieID = movieID;
         _movieYear = movieYear;
-        _movieThumbnail = movieThumbnail;
+        _movieThumbnailNSURL = movieThumbnailNSURL;
     }
     return self;
 }

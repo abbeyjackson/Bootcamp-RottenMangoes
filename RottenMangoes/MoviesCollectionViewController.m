@@ -24,7 +24,7 @@ static NSString * const reuseIdentifier = @"MovieCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.collectionView registerClass:[MovieCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //[self.collectionView registerClass:[MovieCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     self.moviesArray = [NSMutableArray array];
     [self fetchInTheatreMovies];
     
@@ -52,27 +52,37 @@ static NSString * const reuseIdentifier = @"MovieCell";
         
         NSArray *parsedMoviesArray = [moviesDictionary objectForKey:@"movies"];
         
+        
         for (NSDictionary *singleMovieDictionary in parsedMoviesArray) {
             
-            Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"] movieID:[singleMovieDictionary objectForKey:@"id"] movieYear:[singleMovieDictionary objectForKey:@"year"] andMovieThumbnail:nil];
+            NSString *movieThumbnailURL = [[singleMovieDictionary objectForKey:@"posters"] objectForKey:@"thumbnail"];
+            Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"] movieID:[singleMovieDictionary objectForKey:@"id"] movieYear:[singleMovieDictionary objectForKey:@"year"] andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
             
-            movie.imageURLString = [[singleMovieDictionary objectForKey:@"posters"] objectForKey:@"thumbnail"];
             
             [weakSelf.moviesArray addObject:movie];
             
         }
         
-        [weakSelf.collectionView reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.collectionView reloadData];
+        });
         //[weakSelf fetchImagesForMovies];
         
     }];
     [task resume];
     
+    
+    
+    
 }
 
-- (void)fetchImagesForMovies
+- (UIImage*)fetchImagesForMovies:(NSIndexPath *)indexPath
 {
     
+    Movie *movie = self.moviesArray[indexPath.item];
+    NSData *movieThumbnailData = [NSData dataWithContentsOfURL:movie.movieThumbnailNSURL];
+    UIImage *movieThumbnail = [UIImage imageWithData:movieThumbnailData];
+    return movieThumbnail;
 }
 
 
@@ -92,12 +102,11 @@ static NSString * const reuseIdentifier = @"MovieCell";
     
     MovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    
-    Movie *movie = self.moviesArray[indexPath.row];
-//    Movie *movie = [self.moviesArray objectAtIndex:indexPath.row];
+//    Movie *movie = self.moviesArray[indexPath.item];
+    UIImage *image = [self fetchImagesForMovies:indexPath];
     
     cell.backgroundColor = [UIColor redColor];
-    cell.movieThumbnailView.image = movie.movieThumbnail;
+    cell.movieThumbnailView.image = image;
     
     return cell;
 }

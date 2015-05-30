@@ -16,7 +16,8 @@
 		F600949C1B17C49D00BF2372 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F600949A1B17C49D00BF2372 /* LaunchScreen.xib */; };
 		F60094A81B17C49D00BF2372 /* RottenMangoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F60094A71B17C49D00BF2372 /* RottenMangoesTests.m */; };
 		F60094B31B17D55600BF2372 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F60094B21B17D55600BF2372 /* Movie.m */; };
-		F60094B91B1803FF00BF2372 /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F60094B81B1803FF00BF2372 /* MovieCollectionViewCell.m */; };
+		F65E33471B18E67E002AD00F /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F65E33461B18E67E002AD00F /* MovieCollectionViewCell.m */; };
+		F65E33941B19115C002AD00F /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F65E33931B19115C002AD00F /* MovieDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,10 @@
 		F60094A71B17C49D00BF2372 /* RottenMangoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RottenMangoesTests.m; sourceTree = "<group>"; };
 		F60094B11B17D55600BF2372 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		F60094B21B17D55600BF2372 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		F60094B71B1803FF00BF2372 /* MovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionViewCell.h; sourceTree = "<group>"; };
-		F60094B81B1803FF00BF2372 /* MovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionViewCell.m; sourceTree = "<group>"; };
+		F65E33451B18E67E002AD00F /* MovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieCollectionViewCell.h; path = ../MovieCollectionViewCell.h; sourceTree = "<group>"; };
+		F65E33461B18E67E002AD00F /* MovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieCollectionViewCell.m; path = ../MovieCollectionViewCell.m; sourceTree = "<group>"; };
+		F65E33921B19115C002AD00F /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
+		F65E33931B19115C002AD00F /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,11 +96,13 @@
 				F600948D1B17C49D00BF2372 /* AppDelegate.m */,
 				F60094921B17C49D00BF2372 /* MoviesCollectionViewController.h */,
 				F60094931B17C49D00BF2372 /* MoviesCollectionViewController.m */,
-				F60094B71B1803FF00BF2372 /* MovieCollectionViewCell.h */,
-				F60094B81B1803FF00BF2372 /* MovieCollectionViewCell.m */,
+				F65E33451B18E67E002AD00F /* MovieCollectionViewCell.h */,
+				F65E33461B18E67E002AD00F /* MovieCollectionViewCell.m */,
 				F60094B11B17D55600BF2372 /* Movie.h */,
 				F60094B21B17D55600BF2372 /* Movie.m */,
 				F60094951B17C49D00BF2372 /* Main.storyboard */,
+				F65E33921B19115C002AD00F /* MovieDetailViewController.h */,
+				F65E33931B19115C002AD00F /* MovieDetailViewController.m */,
 				F60094981B17C49D00BF2372 /* Images.xcassets */,
 				F600949A1B17C49D00BF2372 /* LaunchScreen.xib */,
 				F600948F1B17C49D00BF2372 /* RottenMangoes.xcdatamodeld */,
@@ -233,11 +238,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F600948E1B17C49D00BF2372 /* AppDelegate.m in Sources */,
+				F65E33941B19115C002AD00F /* MovieDetailViewController.m in Sources */,
 				F600948B1B17C49D00BF2372 /* main.m in Sources */,
 				F60094B31B17D55600BF2372 /* Movie.m in Sources */,
 				F60094941B17C49D00BF2372 /* MoviesCollectionViewController.m in Sources */,
 				F60094911B17C49D00BF2372 /* RottenMangoes.xcdatamodeld in Sources */,
-				F60094B91B1803FF00BF2372 /* MovieCollectionViewCell.m in Sources */,
+				F65E33471B18E67E002AD00F /* MovieCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
