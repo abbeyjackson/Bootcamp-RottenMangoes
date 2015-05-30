@@ -102,11 +102,14 @@ static NSString * const reuseIdentifier = @"MovieCell";
     
     MovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-//    Movie *movie = self.moviesArray[indexPath.item];
+    Movie *movie = self.moviesArray[indexPath.item];
     UIImage *image = [self fetchImagesForMovies:indexPath];
     
     cell.backgroundColor = [UIColor redColor];
     cell.movieThumbnailView.image = image;
+    
+    //populate movie objects in array with UIImage
+    movie.movieThumbnail = image;
     
     return cell;
 }

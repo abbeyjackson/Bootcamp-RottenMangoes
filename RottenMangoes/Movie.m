@@ -17,6 +17,7 @@
         _movieID = movieID;
         _movieYear = movieYear;
         _movieThumbnailNSURL = movieThumbnailNSURL;
+        _movieThumbnail = nil;
     }
     return self;
 }
