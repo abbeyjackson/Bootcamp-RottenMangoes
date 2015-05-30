@@ -14,10 +14,11 @@
 @property (nonatomic) NSString *movieTitle;
 @property (nonatomic) NSString *movieID;
 @property (nonatomic) NSString *movieYear;
+@property (nonatomic) NSString *movieSynopsis;
 @property (nonatomic) NSURL *movieThumbnailNSURL;
 @property (nonatomic) UIImage *movieThumbnail;
 //@property (nonatomic) NSString *imageURLString;
 
--(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL;
+-(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(NSString*)movieYear movieSynopsis:(NSString*)movieSynopsis andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL;
 
 @end
