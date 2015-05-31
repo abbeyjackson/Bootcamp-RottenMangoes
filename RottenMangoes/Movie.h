@@ -17,6 +17,7 @@
 @property (nonatomic) NSString *movieSynopsis;
 @property (nonatomic) NSURL *movieThumbnailNSURL;
 @property (nonatomic) UIImage *movieThumbnail;
+@property (nonatomic) NSMutableArray *movieReviewsArray;
 //@property (nonatomic) NSString *imageURLString;
 
 -(instancetype)initWithMovieTitle:(NSString*)movieTitle movieID:(NSString*)movieID movieYear:(int)movieYear movieSynopsis:(NSString*)movieSynopsis andMovieThumbnailNSURL:(NSURL*)movieThumbnailNSURL;

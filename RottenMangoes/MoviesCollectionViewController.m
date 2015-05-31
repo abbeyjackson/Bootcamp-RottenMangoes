@@ -40,7 +40,7 @@ static NSString * const reuseIdentifier = @"MovieCell";
     if ([[segue identifier] isEqualToString:@"movieDetailView"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         
-        Movie *movie = self.moviesArray[indexPath.row];
+        Movie *movie = self.moviesArray[indexPath.item];
         [[segue destinationViewController] setMovieDetail:movie];
     }
 }
@@ -55,8 +55,6 @@ static NSString * const reuseIdentifier = @"MovieCell";
     
     __weak typeof(self)weakSelf = self;
     NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        NSString *responseString = [[NSString alloc]initWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-//        NSLog (@"Response: %@", responseString);
         
         NSDictionary *moviesDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
@@ -67,15 +65,11 @@ static NSString * const reuseIdentifier = @"MovieCell";
             
             NSString *movieThumbnailURL = [[singleMovieDictionary objectForKey:@"posters"] objectForKey:@"thumbnail"];
             
-            NSNumber* movieYear = [singleMovieDictionary objectForKey:@"year"];
-            NSString* synopsis = [singleMovieDictionary objectForKey:@"synopsis"];
-            
-            
             Movie *movie = [[Movie alloc]initWithMovieTitle:[singleMovieDictionary objectForKey:@"title"]
                                                     movieID:[singleMovieDictionary objectForKey:@"id"]
-                                                  movieYear:[movieYear intValue]
-                                              movieSynopsis:synopsis
-                                     andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
+                                                  movieYear:[[singleMovieDictionary objectForKey:@"year"] intValue]
+                                              movieSynopsis:[singleMovieDictionary objectForKey:@"synopsis"]
+                                        andMovieThumbnailNSURL:[NSURL URLWithString:movieThumbnailURL]];
             
             [weakSelf.moviesArray addObject:movie];
             
@@ -84,15 +78,13 @@ static NSString * const reuseIdentifier = @"MovieCell";
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.collectionView reloadData];
         });
-        //[weakSelf fetchImagesForMovies];
         
     }];
     [task resume];
     
-    
-    
-    
 }
+
+
 
 - (UIImage*)fetchImagesForMovies:(NSIndexPath *)indexPath{
     
@@ -127,6 +119,7 @@ static NSString * const reuseIdentifier = @"MovieCell";
     
     //populate movie objects in array with UIImage
     movie.movieThumbnail = image;
+    
     
     return cell;
 }
