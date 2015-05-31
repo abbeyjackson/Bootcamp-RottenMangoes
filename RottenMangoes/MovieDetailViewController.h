@@ -18,4 +18,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *movieDetailTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *movieDetailSynopsisLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *review1Label;
+@property (weak, nonatomic) IBOutlet UILabel *review2Label;
+@property (weak, nonatomic) IBOutlet UILabel *review3Label;
+
+@property (weak, nonatomic) IBOutlet UILabel *review1CriticAndDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *review2CriticAndDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *review3CriticAndDateLabel;
 @end
