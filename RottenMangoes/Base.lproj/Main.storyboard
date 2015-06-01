@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJm-rD-O7N" userLabel="DetailMovieThumbnail">
-                                <rect key="frame" x="31" y="190" width="66" height="110"/>
+                                <rect key="frame" x="31" y="170" width="66" height="110"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E2G-1w-sI4">
                                         <rect key="frame" x="6" y="6" width="54" height="80"/>
@@ -97,60 +97,77 @@
                                     <constraint firstItem="E2G-1w-sI4" firstAttribute="top" secondItem="kJm-rD-O7N" secondAttribute="top" constant="6" id="tEo-Lt-qkR"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-dO-bC0">
-                                <rect key="frame" x="31" y="134" width="531" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-dO-bC0">
+                                <rect key="frame" x="31" y="114" width="531" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Synopsis" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a80-zj-YMW">
-                                <rect key="frame" x="127" y="190" width="435" height="14.5"/>
+                                <rect key="frame" x="127" y="170" width="435" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHs-6p-0j8">
-                                <rect key="frame" x="127" y="225" width="435" height="19.5"/>
+                                <rect key="frame" x="127" y="205" width="435" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 1" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YyL-fP-AWV">
-                                <rect key="frame" x="137" y="259" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="239" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 1 Critic and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-3X-PbF">
-                                <rect key="frame" x="137" y="282" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="262" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 2" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gS-tI-69I">
-                                <rect key="frame" x="137" y="311" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="291" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 2 Critic and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpW-mt-vlF">
-                                <rect key="frame" x="137" y="334" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="314" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 3" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jZ-7q-rjz">
-                                <rect key="frame" x="137" y="364" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="344" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review 3 Critic and Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrP-Mx-a56">
-                                <rect key="frame" x="137" y="387" width="425" height="14.5"/>
+                                <rect key="frame" x="137" y="367" width="425" height="14.5"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nvi-ee-NnX">
+                                <rect key="frame" x="31" y="325" width="66" height="63.5"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Show Theatre Map">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="g9d-TO-Xzf" kind="show" id="31l-nk-x0o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -175,7 +192,7 @@
                             <constraint firstItem="a80-zj-YMW" firstAttribute="top" secondItem="fR2-dO-bC0" secondAttribute="bottom" constant="30" id="cru-9Q-eB8"/>
                             <constraint firstItem="PZa-3X-PbF" firstAttribute="top" secondItem="YyL-fP-AWV" secondAttribute="bottom" constant="8" id="dpz-cO-MxK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a80-zj-YMW" secondAttribute="trailing" constant="22" id="hFI-LO-4hb"/>
-                            <constraint firstItem="fR2-dO-bC0" firstAttribute="top" secondItem="bSb-aW-CFL" secondAttribute="bottom" constant="70" id="hXY-fy-eSx"/>
+                            <constraint firstItem="fR2-dO-bC0" firstAttribute="top" secondItem="bSb-aW-CFL" secondAttribute="bottom" constant="50" id="hXY-fy-eSx"/>
                             <constraint firstItem="a80-zj-YMW" firstAttribute="leading" secondItem="kJm-rD-O7N" secondAttribute="trailing" constant="30" id="jLk-4q-Afj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fR2-dO-bC0" secondAttribute="trailing" constant="22" id="kDE-Vg-6tf"/>
                             <constraint firstItem="PZa-3X-PbF" firstAttribute="leading" secondItem="YyL-fP-AWV" secondAttribute="leading" id="ksy-8d-4zT"/>
@@ -203,6 +220,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHx-33-qPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1673" y="26"/>
+        </scene>
+        <!--Theatres Map View Controller-->
+        <scene sceneID="mp0-ru-Poe">
+            <objects>
+                <viewController id="g9d-TO-Xzf" customClass="TheatresMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vci-fQ-nwl"/>
+                        <viewControllerLayoutGuide type="bottom" id="HuM-qw-y7M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V9b-RZ-NR3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wqA-wJ-5XU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wqA-wJ-5XU" firstAttribute="width" secondItem="V9b-RZ-NR3" secondAttribute="width" id="WPO-sg-yva"/>
+                            <constraint firstItem="HuM-qw-y7M" firstAttribute="top" secondItem="wqA-wJ-5XU" secondAttribute="bottom" id="gPp-Up-OZW"/>
+                            <constraint firstItem="wqA-wJ-5XU" firstAttribute="height" secondItem="V9b-RZ-NR3" secondAttribute="height" id="gPp-uW-n8g"/>
+                            <constraint firstItem="wqA-wJ-5XU" firstAttribute="leading" secondItem="V9b-RZ-NR3" secondAttribute="leading" id="kTI-mt-Mw9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="theatreMapView" destination="wqA-wJ-5XU" id="1LV-Ik-RVk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wa-d6-zWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2385" y="26"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bsF-QJ-DbH">
