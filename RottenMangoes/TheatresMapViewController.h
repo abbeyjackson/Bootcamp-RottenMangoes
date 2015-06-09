@@ -13,5 +13,7 @@
 @interface TheatresMapViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+@property (strong, nonatomic) CLPlacemark *currentLocation;
 
 @end

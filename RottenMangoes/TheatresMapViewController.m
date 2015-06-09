@@ -8,6 +8,7 @@
 
 #import "TheatresMapViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 
 @interface TheatresMapViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>{
@@ -21,22 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    initialLocationSet = NO;
-    _locationManager = [[CLLocationManager alloc] init];
-    [_locationManager requestWhenInUseAuthorization];
-    [_locationManager startUpdatingLocation];
-    _locationManager.delegate = self;
-    
-    
-    //    MKPointAnnotation *marker=[[MKPointAnnotation alloc] init];
-    //    CLLocationCoordinate2D iansApartmentLocation;
-    //    iansApartmentLocation.latitude = 49.268950;
-    //    iansApartmentLocation.longitude = -123.153739;
-    //    marker.coordinate = iansApartmentLocation;
-    //    marker.title = @"Ian's Apartment";
-    
-    //    [self.mapView addAnnotation:marker];
+    [self myLocation];
     
     self.theatreMapView.showsUserLocation = true;
     self.theatreMapView.delegate = self;
@@ -44,7 +30,17 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+
+-(void)myLocation{
+    initialLocationSet = NO;
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [_locationManager requestWhenInUseAuthorization];
+    [_locationManager startUpdatingLocation];
+    _locationManager.delegate = self;
+    
 }
 
 
@@ -62,6 +58,36 @@
         
         initialLocationSet = YES;
     }
+    
+    if (self.geocoder == nil){
+        self.geocoder = [[CLGeocoder alloc] init];
+    }
+    if ([self.geocoder isGeocoding]){
+        [self.geocoder cancelGeocode];
+    }
+    
+    CLLocation *newLocation = [locations lastObject];
+    [self.geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *locations, NSError *error) {
+        if ([locations count] > 0){
+            self.currentLocation = [locations objectAtIndex: 0];
+            NSLog(@"You are in %@", self.currentLocation.subLocality);
+            
+            
+        }
+        else if (error.code == kCLErrorGeocodeCanceled){
+            NSLog(@"Geocoding cancelled");
+        }
+        else if (error.code == kCLErrorGeocodeFoundNoResult){
+            NSLog(@"No geocode result found");
+        }
+        else if (error.code == kCLErrorGeocodeFoundPartialResult){
+            NSLog(@"Partial geocode result");
+        }
+        else{
+            NSLog(@"Unknown error: %@", error.description);
+        }
+    }];
+    [manager stopUpdatingLocation];
 }
 
 

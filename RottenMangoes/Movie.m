@@ -19,7 +19,7 @@
         _movieThumbnailNSURL = movieThumbnailNSURL;
         _movieSynopsis = movieSynopsis;
         _movieThumbnail = nil;
-        _movieReviewsArray = nil;
+        _movieReviewsArray = [NSMutableArray array];
     }
     return self;
 }

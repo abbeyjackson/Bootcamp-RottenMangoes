@@ -18,16 +18,14 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setMovieDetail:(id)newMovieDetail{
-    if (_movieDetail != newMovieDetail) {
-        _movieDetail = newMovieDetail;
-        [self fetchThreeMovieReviews];
-        // Update the view.
-        [self configureView];
-    }
-}
+//- (void)setMovieDetail:(id)newMovieDetail{
+//    if (_movieDetail != newMovieDetail) {
+//        _movieDetail = newMovieDetail;
+//        // Update the view.
+//    }
+//}
 
--(void)configureView{
+-(void)addImageAndReviews{
     // Update the user interface for the detail item
     
     if (self.movieDetail) {
@@ -38,16 +36,16 @@
         self.movieDetailSynopsisLabel.text = self.movieDetail.movieSynopsis;
         
         NSDictionary *review1Dictionary = self.movieDetail.movieReviewsArray[0];
-        self.review1Label.text = [review1Dictionary objectForKey:@"Movie Review:"];
-        self.review1CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review1Dictionary objectForKey:@"Review Critic:"],[review1Dictionary objectForKey:@"Review Date"]];
+        self.review1Label.text = [review1Dictionary objectForKey:@"movieReview"];
+        self.review1CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review1Dictionary objectForKey:@"reviewCritic"],[review1Dictionary objectForKey:@"reviewDate"]];
         
         NSDictionary *review2Dictionary = self.movieDetail.movieReviewsArray[1];
-        self.review2Label.text = [review2Dictionary objectForKey:@"Movie Review:"];
-        self.review2CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review2Dictionary objectForKey:@"Review Critic:"],[review2Dictionary objectForKey:@"Review Date"]];
+        self.review2Label.text = [review2Dictionary objectForKey:@"movieReview"];
+        self.review2CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review2Dictionary objectForKey:@"reviewCritic"],[review2Dictionary objectForKey:@"reviewDate"]];
         
         NSDictionary *review3Dictionary = self.movieDetail.movieReviewsArray[3];
-        self.review3Label.text = [review3Dictionary objectForKey:@"Movie Review:"];
-        self.review3CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review3Dictionary objectForKey:@"Review Critic:"],[review3Dictionary objectForKey:@"Review Date"]];
+        self.review3Label.text = [review3Dictionary objectForKey:@"movieReview"];
+        self.review3CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review3Dictionary objectForKey:@"reviewCritic"],[review3Dictionary objectForKey:@"reviewDate"]];
     }
 }
 
@@ -71,14 +69,14 @@
             NSString *movieReviewDate = [singleReviewDictionary objectForKey:@"date"];
             
             NSMutableDictionary *reviewDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                                     movieReviewQuote, @"Movie Review:", movieReviewCritic, @"Review Critic:", movieReviewDate, @"Review Date:", nil];
+                                                     movieReviewQuote, @"movieReview", movieReviewCritic, @"reviewCritic", movieReviewDate, @"reviewDate", nil];
             
             [self.movieDetail.movieReviewsArray addObject:reviewDictionary];
             
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.view setNeedsDisplay];
+            [weakSelf addImageAndReviews];
         });
         
     }];
@@ -88,7 +86,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self configureView];
+    [self fetchThreeMovieReviews];
+
 }
 
 - (void)didReceiveMemoryWarning {
