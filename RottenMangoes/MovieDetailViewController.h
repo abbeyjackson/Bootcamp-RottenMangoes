@@ -11,7 +11,7 @@
 
 @interface MovieDetailViewController : UIViewController
 
-@property (nonatomic) Movie *movieDetail;
+@property (nonatomic) Movie *movie;
 @property (weak, nonatomic) IBOutlet UIView *movieThumbnailDetailBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *movieDetailThumbnailView;
 @property (weak, nonatomic) IBOutlet UILabel *movieDetailYearLabel;

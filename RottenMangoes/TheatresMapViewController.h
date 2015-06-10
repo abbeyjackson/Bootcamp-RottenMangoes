@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+@class Movie;
 
 
 @interface TheatresMapViewController : UIViewController
@@ -15,5 +16,9 @@
 @property (weak, nonatomic) IBOutlet MKMapView *theatreMapView;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 @property (strong, nonatomic) CLPlacemark *currentLocation;
+@property (strong, nonatomic) Movie *movie;
+@property (strong, nonatomic) NSMutableArray *theatreArray;
+@property (strong, nonatomic) MKPointAnnotation *annotation;
+
 
 @end

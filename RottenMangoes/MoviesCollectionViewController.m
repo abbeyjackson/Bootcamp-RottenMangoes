@@ -41,7 +41,7 @@ static NSString * const reuseIdentifier = @"MovieCell";
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         
         Movie *movie = self.moviesArray[indexPath.item];
-        [[segue destinationViewController] setMovieDetail:movie];
+        [[segue destinationViewController] setMovie:movie];
     }
 }
 

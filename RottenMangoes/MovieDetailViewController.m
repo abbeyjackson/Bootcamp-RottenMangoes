@@ -9,6 +9,7 @@
 #import "MovieDetailViewController.h"
 #import "MoviesCollectionViewController.h"
 #import "Movie.h"
+#import "TheatresMapViewController.h"
 
 @interface MovieDetailViewController ()
 
@@ -28,22 +29,22 @@
 -(void)addImageAndReviews{
     // Update the user interface for the detail item
     
-    if (self.movieDetail) {
+    if (self.movie) {
         
-        self.movieDetailThumbnailView.image = self.movieDetail.movieThumbnail;
-        self.movieDetailYearLabel.text = [NSString stringWithFormat:@"%d", self.movieDetail.movieYear];
-        self.movieDetailTitleLabel.text = self.movieDetail.movieTitle;
-        self.movieDetailSynopsisLabel.text = self.movieDetail.movieSynopsis;
+        self.movieDetailThumbnailView.image = self.movie.movieThumbnail;
+        self.movieDetailYearLabel.text = [NSString stringWithFormat:@"%d", self.movie.movieYear];
+        self.movieDetailTitleLabel.text = self.movie.movieTitle;
+        self.movieDetailSynopsisLabel.text = self.movie.movieSynopsis;
         
-        NSDictionary *review1Dictionary = self.movieDetail.movieReviewsArray[0];
+        NSDictionary *review1Dictionary = self.movie.movieReviewsArray[0];
         self.review1Label.text = [review1Dictionary objectForKey:@"movieReview"];
         self.review1CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review1Dictionary objectForKey:@"reviewCritic"],[review1Dictionary objectForKey:@"reviewDate"]];
         
-        NSDictionary *review2Dictionary = self.movieDetail.movieReviewsArray[1];
+        NSDictionary *review2Dictionary = self.movie.movieReviewsArray[1];
         self.review2Label.text = [review2Dictionary objectForKey:@"movieReview"];
         self.review2CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review2Dictionary objectForKey:@"reviewCritic"],[review2Dictionary objectForKey:@"reviewDate"]];
         
-        NSDictionary *review3Dictionary = self.movieDetail.movieReviewsArray[3];
+        NSDictionary *review3Dictionary = self.movie.movieReviewsArray[3];
         self.review3Label.text = [review3Dictionary objectForKey:@"movieReview"];
         self.review3CriticAndDateLabel.text = [NSString stringWithFormat:@"%@, %@",[review3Dictionary objectForKey:@"reviewCritic"],[review3Dictionary objectForKey:@"reviewDate"]];
     }
@@ -71,7 +72,7 @@
             NSMutableDictionary *reviewDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                                      movieReviewQuote, @"movieReview", movieReviewCritic, @"reviewCritic", movieReviewDate, @"reviewDate", nil];
             
-            [self.movieDetail.movieReviewsArray addObject:reviewDictionary];
+            [self.movie.movieReviewsArray addObject:reviewDictionary];
             
         }
         
@@ -95,14 +96,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    TheatresMapViewController *vc = [segue destinationViewController];
+    vc.movie = self.movie;
+    
 }
-*/
+
 
 @end
