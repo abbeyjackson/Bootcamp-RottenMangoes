@@ -34,7 +34,7 @@
     myAnnotation.title = @"Matthews Pizza";
     myAnnotation.subtitle = @"Best Pizza in Town";
     
-//    [self.theatreMapView addAnnotation:myAnnotation];
+    [self.theatreMapView addAnnotation:myAnnotation];
 
 }
 
@@ -109,9 +109,9 @@
             NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
                 NSLog(@"response: %@ and error: %@", response, error);
                 NSDictionary *theatreDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                NSLog(@"theatreDictionary: %@", theatreDictionary);
+                //NSLog(@"theatreDictionary: %@", theatreDictionary);
                 NSArray *parsedTheatresArray = theatreDictionary[@"theatres"];
-                NSLog(@"parsedTheatreDictionary: %@", parsedTheatresArray);
+                //NSLog(@"parsedTheatreDictionary: %@", parsedTheatresArray);
                 
                 for (NSDictionary *singleTheatreDictionary in parsedTheatresArray){
                     
@@ -126,6 +126,9 @@
                     self.annotation.subtitle = theatre.address;
                     self.annotation.coordinate = coordinate;
                     [self.theatreMapView addAnnotation:self.annotation];
+                    
+                    //NSLog(@"title: %@; coordinate: %f, %f", self.annotation.title, self.annotation.coordinate.latitude, self.annotation.coordinate.longitude);
+
                     
                 }
                 
@@ -159,14 +162,15 @@
         return nil;
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
-        MKAnnotationView *pinView = (MKAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"theatreAnnotationView"];
+        MKPinAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"theatreAnnotationView"];
         
         if (!pinView)
         {
             // If an existing pin view was not available, create one.
-            pinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"theatreAnnotationView"];
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"theatreAnnotationView"];
+            NSLog(@"Annotations: %@", self.theatreMapView.annotations);
             pinView.canShowCallout = YES;
-            pinView.image = [UIImage imageNamed:@"pinSymbol.png"];
+//            pinView.image = [UIImage imageNamed:@"pinSymbol.png"];
             pinView.calloutOffset = CGPointMake(0, 32);
         }
         else {
